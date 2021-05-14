@@ -5,7 +5,7 @@ export const MidiPort = ({onSelectedInput, webMidiStatus, access} : PortProps) =
   const webMidiInitialized = webMidiStatus === "initialized";
   const [availableInputs, setAvailableInputs] = useState<Array<PortDefinition>>([])
   const [availableOutputs, setAvailableOutputs] = useState<Array<PortDefinition>>([])
-  
+
   function generateAvailableOutputs(): Array<PortDefinition> {
     let outputs = []
     for (const output of WebMidi.outputs) {
@@ -48,13 +48,11 @@ export const MidiPort = ({onSelectedInput, webMidiStatus, access} : PortProps) =
       <div>
         <select onChange={onSelectedInput}>
           <option id="inputs" key="inital_input">-- inputs --</option>
-          {/* {this.state.availableInputs} */}
           {availableInputsArr}
         </select>
         <select>
           <option id='outputs' key="initial_output">-- outputs --</option>
           {availableOutputsArr}
-          {/* {this.state.availableOutputs} */}
         </select>
       </div>
     );
